@@ -1,4 +1,7 @@
 WebLapine::Application.routes.draw do
+  get  ':network/:channel/links' => 'links#index'
+  post ':network/:channel/links' => 'links#create'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
