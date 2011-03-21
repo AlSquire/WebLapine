@@ -29,3 +29,21 @@ gem 'sqlite3'
 # group :development, :test do
 #   gem 'webrat'
 # end
+group :development, :test do
+  # gem 'ruby-debug'
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
+  gem 'shoulda'
+  gem 'autotest'
+  # gem 'delorean'
+  gem 'database_cleaner'
+  # gem 'mongrel'
+end
+
+
+# gem 'devise'
+gem 'haml'
+# gem 'jquery-rails'
+# gem 'paperclip'
+# gem 'kaminari'
+# gem 'seed-fu'
