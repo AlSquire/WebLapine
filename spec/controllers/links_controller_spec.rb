@@ -23,7 +23,7 @@ describe LinksController do
   describe 'POST :create' do
     before do
       post :create, :network => 'freenode', :channel => 'ruby',
-           :link => { :line => 'Love this : http://ruby.fr' }
+           :link => { :sender => 'nick', :line => 'Love this : http://ruby.fr' }
     end
 
     it { should respond_with(:success) }

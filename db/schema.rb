@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110321230918) do
+ActiveRecord::Schema.define(:version => 20110322015237) do
 
   create_table "links", :force => true do |t|
     t.string   "network"
@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(:version => 20110321230918) do
     t.text     "line"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "sender"
   end
 
   add_index "links", ["network", "channel"], :name => "index_links_on_network_and_channel"
