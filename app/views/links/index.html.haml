@@ -1,0 +1,10 @@
+%h1
+  Les bons liens
+  = "#{@network}/#{@channel}"
+
+%ul
+  - @links.each do |link|
+    = content_tag_for(:li, link) do
+      .line= auto_link(link.line)
+      .created_at= time_ago_in_words(link.created_at)
+    
