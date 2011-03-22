@@ -2,7 +2,7 @@ class LinksController < ApplicationController
   def index
     @network = params[:network]
     @channel = params[:channel]
-    @links   = Link.order(:created_at).find_all_by_network_and_channel(@network, @channel)
+    @links   = Link.order('links.created_at DESC').find_all_by_network_and_channel(@network, @channel)
   end
 
   def create
