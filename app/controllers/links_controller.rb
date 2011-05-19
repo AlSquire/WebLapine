@@ -3,6 +3,10 @@ class LinksController < ApplicationController
     @network = params[:network]
     @channel = params[:channel]
     @links   = Link.order('links.created_at DESC').find_all_by_network_and_channel(@network, @channel)
+    respond_to do |format|
+      format.html
+      format.rss { render :layout => false }
+    end
   end
 
   def create

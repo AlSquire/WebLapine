@@ -8,6 +8,12 @@ describe "LinkRoutes" do
   end
 
   it do
+    { :get => '/freenode/ruby/links.rss' }.
+    should route_to :controller => 'links', :action => 'index', :format => 'rss',
+                    :network => 'freenode', :channel => 'ruby'
+  end
+
+  it do
     { :post => '/freenode/ruby/links/' }.
     should route_to :controller => 'links', :action => 'create',
                     :network => 'freenode', :channel => 'ruby'
