@@ -5,9 +5,6 @@
 %ul
   - @links.each do |link|
     = content_tag_for(:li, link) do
-      .line= auto_link(h(link.line))
-      .created_at= time_ago_in_words(link.created_at)
-      .sender
-        by
-        = link.sender
+      .line= "#{link.sender}> #{auto_link(h(link.line))}"
+      .created_at= "#{time_ago_in_words(link.created_at)} ago (#{link.created_at})"
     
