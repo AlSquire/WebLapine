@@ -3,7 +3,7 @@ xml.rss :version => "2.0" do
   xml.channel do
     xml.title "WebLapine: Les bons liens #{@network}/#{@channel}"
     xml.description "All ur links are belong to WebLapine"
-    xml.link url_for(:controller => :links, :action => :index, :network => @network, :channel => @channel)
+    xml.link url_for(:only_path => false, :format => nil)
 
     @links.each do |link|
       xml.item do
