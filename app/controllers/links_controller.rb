@@ -2,10 +2,13 @@ class LinksController < ApplicationController
   def index
     @network = params[:network]
     @channel = params[:channel]
-    @links   = Link.order('links.created_at DESC').find_all_by_network_and_channel(@network, @channel)
+    @links   = Link.order('links.created_at DESC').where(:network => @network).where(:channel => @channel)
     respond_to do |format|
       format.html
-      format.rss { render :layout => false }
+      format.rss do
+        @links = @links.where(["links.created_at > ?", 1.week.ago])
+        render :layout => false
+      end
     end
   end
 
