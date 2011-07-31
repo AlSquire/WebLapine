@@ -11,5 +11,5 @@
       - if youtube_url = detect_youtube_url(link.line)
         - youtube_id = extract_youtube_id_from_url(youtube_url)
         %button.youtube_button Afficher/cacher la vidéo
-        %div.youtube_video= youtube_video(youtube_id)
+        %div.youtube_video{ :style => 'display: none' }= youtube_video(youtube_id)
     
