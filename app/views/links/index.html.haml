@@ -1,6 +1,5 @@
 %h1
-  Les bons liens
-  = "#{@network}/#{@channel}"
+  = link_to "Les bons liens #{@network}/#{@channel}"
 
 %ul
   - @links.each do |link|
