@@ -13,7 +13,7 @@ require 'spec_helper'
 describe LinksHelper do
   describe "youtube_video" do
     it "return an iframe of the video" do
-      helper.youtube_video('ZnehCBoYLbc').should == '<iframe width="425" height="349" src="http://www.youtube.com/embed/ZnehCBoYLbc" frameborder="0" allowfullscreen></iframe>'
+      helper.youtube_video('ZnehCBoYLbc').should == '<object width="425" height="349"><param name="movie" value="http://www.youtube-nocookie.com/v/ZnehCBoYLbc?version=3&amp;hl=fr_FR&amp;rel=0"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube-nocookie.com/v/ZnehCBoYLbc?version=3&amp;hl=fr_FR&amp;rel=0" type="application/x-shockwave-flash" width="425" height="349" allowscriptaccess="always" allowfullscreen="true"></embed></object>'
     end
   end
 
