@@ -1,11 +1,11 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.7'
+gem 'rails', '3.0.9'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
+# gem 'sqlite3'
 
 # Use unicorn as the web server
 # gem 'unicorn'
@@ -31,11 +31,15 @@ gem 'sqlite3'
 # end
 group :development, :test do
   # gem 'ruby-debug'
+  gem 'sqlite3'
   gem 'rspec-rails'
+  gem 'guard-rspec'
   gem 'factory_girl_rails'
   gem 'shoulda'
-  gem 'autotest'
+  # gem 'autotest'
   # gem 'delorean'
+  gem 'rb-fsevent'
+  gem 'growl'
   gem 'database_cleaner'
   # gem 'mongrel'
 end
