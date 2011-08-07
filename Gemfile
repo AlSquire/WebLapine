@@ -49,5 +49,5 @@ end
 gem 'haml'
 # gem 'jquery-rails'
 # gem 'paperclip'
-# gem 'kaminari'
+gem 'kaminari'
 # gem 'seed-fu'
