@@ -4,7 +4,7 @@ class LinksController < ApplicationController
     @channel = params[:channel]
     @links   = Link.order('links.created_at DESC').where(:network => @network).where(:channel => @channel)
     respond_to do |format|
-      format.html
+      format.html { @links = @links.page(params[:page]) }
       format.rss do
         @links = @links.where(["links.created_at > ?", 1.week.ago])
         render :layout => false

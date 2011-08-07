@@ -1,6 +1,8 @@
 %h1
   = link_to "Les bons liens #{@network}/#{@channel}"
 
+= paginate @links
+
 %ul
   - @links.each do |link|
     = content_tag_for(:li, link) do
@@ -12,4 +14,6 @@
         - youtube_id = extract_youtube_id_from_url(youtube_url)
         %button.youtube_button Afficher/cacher la vidéo
         %div.youtube_video{ :style => 'display: none' }= youtube_video(youtube_id)
+
+= paginate @links
     
