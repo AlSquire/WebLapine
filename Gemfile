@@ -29,6 +29,12 @@ gem 'rails', '3.0.10rc1'
 # group :development, :test do
 #   gem 'webrat'
 # end
+
+group :production do
+  gem 'pg'
+  gem 'thin'
+end
+
 group :development, :test do
   # gem 'ruby-debug'
   gem 'sqlite3'
