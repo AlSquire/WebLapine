@@ -155,7 +155,7 @@ DEPENDENCIES
   jquery-rails
   kaminari
   pg
-  rails (= 3.1.0rc5)
+  rails (= 3.1.0.rc5)
   rails_autolink
   rb-fsevent
   rspec-rails
