@@ -1,7 +1,6 @@
 source :gemcutter
 
-# gem 'rails', '3.0.10rc1'
-gem 'rails', '3.1.0.rc5'
+gem 'rails', '3.1.0.rc6'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
