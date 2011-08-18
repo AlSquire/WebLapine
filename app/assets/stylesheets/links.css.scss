@@ -2,7 +2,31 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import "compass/css3";
+// @import "compass/reset";
+// @import "compass/typography";
+@import "compass/utilities";
 
 body {
   @include background(linear-gradient(top, #ccc, #fff 30px));
 }
+
+ul:nth-of-type(1) {
+  li:nth-of-type(2) {
+    a {
+      padding: 1px;
+      border: solid 1px darkorange;
+      @include border-radius(2px);
+      @include background(linear-gradient(top, #f90, #fc6 1em));
+      font-size: smaller;
+      // font-weight: bold;
+      // font-family: sans-serif;
+      color: white;
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+        @include background(linear-gradient(top, #fc6, #f90 1em));
+      }
+    }
+  }
+}
+
