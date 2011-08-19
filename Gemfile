@@ -47,6 +47,7 @@ group :development, :test do
   gem 'database_cleaner'
   # gem 'mongrel'
   gem 'guard-livereload'
+  gem 'yajl-ruby'
 end
 
 
