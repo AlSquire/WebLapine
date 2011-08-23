@@ -10,18 +10,24 @@ body {
   @include background(linear-gradient(top, #ccc, #fff 30px));
 }
 
+h1 {
+  @include single-text-shadow(rgba(black, 0.5), 0.1em, 0.1em, 0.1em);
+}
+
 ul:nth-of-type(1) {
   li:nth-of-type(2) {
     a {
       padding: 1px;
       border: solid 1px darkorange;
       @include border-radius(2px);
+      background-color: orange;
       @include background(linear-gradient(top, #f90, #fc6 1em));
       font-size: smaller;
-      // font-weight: bold;
-      // font-family: sans-serif;
+      font-weight: bold;
+      font-family: sans-serif;
       color: white;
       text-decoration: none;
+      @include single-text-shadow(rgba(black, 0.2), 0, 1px);
       &:hover {
         text-decoration: underline;
         @include background(linear-gradient(top, #fc6, #f90 1em));
