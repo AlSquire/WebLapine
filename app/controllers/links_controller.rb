@@ -3,6 +3,7 @@ class LinksController < ApplicationController
     @network = params[:network]
     @channel = params[:channel]
     @links   = Link.order('links.created_at DESC').where(:network => @network).where(:channel => @channel)
+    @links   = @links.search(params[:search]) if params[:search]
     respond_to do |format|
       format.html { @links = @links.page(params[:page]) }
       format.rss do

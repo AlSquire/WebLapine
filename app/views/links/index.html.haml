@@ -4,6 +4,11 @@
 %h1
   = link_to "Les bons liens #{@network}/#{@channel}"
 
+.search
+  = form_tag nil, :method => :get do
+    = submit_tag "Rechercher"
+    = text_field_tag :search, params[:search]
+
 = paginate @links
 
 %ul
