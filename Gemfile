@@ -1,6 +1,6 @@
 source :gemcutter
 
-gem 'rails', '3.1.0'
+gem 'rails', '3.1.1.rc3'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -13,7 +13,7 @@ group :assets do
   gem 'sass-rails'
   gem 'coffee-rails'
   gem 'uglifier'
-  gem 'compass', :git => 'git://github.com/chriseppstein/compass.git', :branch => 'rails31'
+  gem 'compass', :git => 'git://github.com/chriseppstein/compass.git', :branch => 'master'
 end
 
 gem 'jquery-rails'
