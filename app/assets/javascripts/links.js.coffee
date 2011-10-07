@@ -2,6 +2,9 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 $(document).ready () ->
+  $('.line a').live 'click', (event) ->
+    window.open $(this).attr('href')
+    event.preventDefault()
   $('.youtube_button').live 'click', (event) ->
       $(this).parents('.link').children('.youtube_video').toggle()
       event.preventDefault()
