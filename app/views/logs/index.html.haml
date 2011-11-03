@@ -1,0 +1,23 @@
+- content_for(:html_head) do
+  %link{ :rel => "alternate", :type => "application/rss+xml", :title => "Les bons logs #{@network}/#{@channel}", :href => url_for(:only_path => false, :format => :rss) }
+
+%h1
+  = link_to "Les bons logs #{@network}/#{@channel}"
+
+.search
+  = form_tag nil, :method => :get do
+    = submit_tag "Rechercher"
+    = text_field_tag :search, params[:search]
+
+= paginate @logs
+
+%ul#logs
+  - @logs.each do |log|
+    = content_tag_for(:li, log) do
+      .line= auto_link(h(log.line)).html_safe
+      .sender
+        added by 
+        %em= log.sender
+      .created_at= "#{time_ago_in_words(log.created_at)} ago (#{log.created_at})"
+
+= paginate @logs

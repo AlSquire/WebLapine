@@ -6,6 +6,12 @@ WebLapine::Application.routes.draw do
   get  ':network/:channel/links' => 'links#index'
   post ':network/:channel/links' => 'links#create'
 
+  get  ':network/:channel/logs'          => 'logs#index'
+  get  ':network/:channel/logs/random'   => 'logs#random'
+  get  ':network/:channel/logs/search'   => 'logs#search'
+  get  ':network/:channel/logs/previous' => 'logs#previous'
+  post ':network/:channel/logs'          => 'logs#create'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
