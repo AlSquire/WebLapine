@@ -1,7 +1,24 @@
-# A sample Guardfile
-# More info at https://github.com/guard/guard#readme
+guard 'livereload' do
+  watch(%r{app/.+\.(erb|haml)})
+  watch(%r{app/helpers/.+\.rb})
+  watch(%r{(public/|app/assets).+\.(css|js|html)})
+  watch(%r{(app/assets/.+\.css)\.s[ac]ss}) { |m| m[1] }
+  watch(%r{(app/assets/.+\.js)\.coffee}) { |m| m[1] }
+  watch(%r{config/locales/.+\.yml})
+end
 
-guard 'rspec', :version => 2 do
+# guard 'spork', :cucumber_env => { 'RAILS_ENV' => 'test' }, :rspec_env => { 'RAILS_ENV' => 'test' } do
+#   watch('config/application.rb')
+#   watch('config/environment.rb')
+#   watch(%r{^config/environments/.+\.rb$})
+#   watch(%r{^config/initializers/.+\.rb$})
+#   watch('Gemfile')
+#   watch('Gemfile.lock')
+#   watch('spec/spec_helper.rb')
+#   watch('test/test_helper.rb')
+# end
+
+guard 'rspec', :version => 2, :cli => '--drb' do
   watch(%r{^spec/.+_spec\.rb$})
   watch(%r{^lib/(.+)\.rb$})     { |m| "spec/lib/#{m[1]}_spec.rb" }
   watch('spec/spec_helper.rb')  { "spec" }
@@ -17,13 +34,4 @@ guard 'rspec', :version => 2 do
   watch('app/controllers/application_controller.rb')  { "spec/controllers" }
   # Capybara request specs
   watch(%r{^app/views/(.+)/.*\.(erb|haml)$})          { |m| "spec/requests/#{m[1]}_spec.rb" }
-end
-
-guard 'livereload' do
-  watch(%r{app/.+\.(erb|haml)})
-  watch(%r{app/helpers/.+\.rb})
-  watch(%r{(public/|app/assets).+\.(css|js|html)})
-  watch(%r{(app/assets/.+\.css)\.s[ac]ss}) { |m| m[1] }
-  watch(%r{(app/assets/.+\.js)\.coffee}) { |m| m[1] }
-  watch(%r{config/locales/.+\.yml})
 end
