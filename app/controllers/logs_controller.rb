@@ -22,24 +22,24 @@ class LogsController < ApplicationController
   end
 
   def random
-    @log = Log.where(:network => @network)
-              .where(:channel => @channel)
-              .random
+    @log = Log.where(:network => @network).
+               where(:channel => @channel).
+               random
     render :text => @log.line
   end
 
   def search
-    @log = Log.where(:network => @network)
-              .where(:channel => @channel)
-              .search(params[:term])
-              .random
+    @log = Log.where(:network => @network).
+               where(:channel => @channel).
+               search(params[:term]).
+               random
     render :text => @log.line
   end
 
   def previous
-    @log = Log.where(:network => @network)
-              .where(:channel => @channel)
-              .previous(params[:offset].to_i)
+    @log = Log.where(:network => @network).
+               where(:channel => @channel).
+               previous(params[:offset].to_i)
     render :text => @log.line
   end
 
