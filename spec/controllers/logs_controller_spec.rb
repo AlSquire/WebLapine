@@ -82,11 +82,9 @@ describe LogsController do
 
   describe 'GET :search .txt' do
     before do
-      log = FactoryGirl.build_stubbed(:log)
-      Log.should_receive(:search).with('term').and_return(Log.scoped)
-      Log.should_receive(:random).and_return(log)
+      Factory.create(:log, :line => 'search me')
       get :search, :network => 'freenode', :channel => 'ruby', :format => :txt,
-          :term => 'term'
+          :term => 'search me'
     end
 
     it_behaves_like 'an irc scoped action'

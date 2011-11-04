@@ -29,11 +29,12 @@ class LogsController < ApplicationController
   end
 
   def search
-    @log = Log.where(:network => @network).
+    logs = Log.where(:network => @network).
                where(:channel => @channel).
-               search(params[:term]).
-               random
-    render :text => @log.line
+               search(params[:term])
+    count = logs.count
+    @log = logs.random if count > 0
+    render :text => @log ? "#{@log.line} (#{count} resultats)" : "No result"
   end
 
   def previous
