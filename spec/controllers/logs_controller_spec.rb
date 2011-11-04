@@ -69,8 +69,7 @@ describe LogsController do
 
   describe 'GET :random .txt' do
     before do
-      log = double('log')
-      log.should_receive(:line)
+      log = FactoryGirl.build_stubbed(:log)
       Log.should_receive(:random).and_return(log)
       get :random, :network => 'freenode', :channel => 'ruby', :format => :txt
     end
@@ -83,8 +82,7 @@ describe LogsController do
 
   describe 'GET :search .txt' do
     before do
-      log = double('log')
-      log.should_receive(:line)
+      log = FactoryGirl.build_stubbed(:log)
       Log.should_receive(:search).with('term').and_return(Log.scoped)
       Log.should_receive(:random).and_return(log)
       get :search, :network => 'freenode', :channel => 'ruby', :format => :txt,
@@ -99,8 +97,7 @@ describe LogsController do
 
   describe 'GET :previous .txt' do
     before do
-      log = double('log')
-      log.should_receive(:line)
+      log = FactoryGirl.build_stubbed(:log)
       Log.should_receive(:previous).with(3).and_return(log)
       get :previous, :network => 'freenode', :channel => 'ruby', :format => :txt,
           :offset => "3"
