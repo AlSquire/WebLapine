@@ -40,7 +40,7 @@ class LogsController < ApplicationController
     @log = Log.where(:network => @network).
                where(:channel => @channel).
                previous(params[:offset].to_i)
-    render :text => @log.line
+    render :text => "#{@log.line} (ajoute par #{@log.sender || 'unknown'} le #{@log.created_at})"
   end
 
 private
