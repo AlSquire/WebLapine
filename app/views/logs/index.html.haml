@@ -18,6 +18,6 @@
       .sender
         added by 
         %em= log.sender
-      .created_at= "#{time_ago_in_words(log.created_at)} ago (#{log.created_at})"
+      .created_at= timeago(log.created_at)
 
 = paginate @logs

@@ -17,7 +17,7 @@
       .line
         = "#{link.sender}> "
         = auto_link(h(link.line)).html_safe
-      .created_at= "#{time_ago_in_words(link.created_at)} ago (#{link.created_at})"
+      .created_at= timeago(link.created_at)
       - if youtube_url = detect_youtube_url(link.line)
         - youtube_id = extract_youtube_id_from_url(youtube_url)
         %button.youtube_button Afficher/cacher la vidéo
