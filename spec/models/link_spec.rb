@@ -24,9 +24,9 @@ describe Link do
   describe "#create with an image uri" do
     before do
       line = "It's a great photo http://something.fr/cat.png xD"
-      Link.should_receive(:request_resource_mirroring)
-          .with("http://something.fr/cat.png")
-          .and_return('http://files.catstorage.com/12345.png')
+      Link.should_receive(:request_resource_mirroring).
+          with("http://something.fr/cat.png").
+          and_return('http://files.catstorage.com/12345.png')
       @link = Link.create(:line => line, :network => "netnet", :channel => "chanchan", :sender => "xand")
     end
 
