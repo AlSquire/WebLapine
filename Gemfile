@@ -59,5 +59,6 @@ gem 'haml'
 gem 'kaminari'
 # gem 'seed-fu'
 gem 'rails_autolink'
+gem 'rest-client'
 
 gem 'activeadmin'

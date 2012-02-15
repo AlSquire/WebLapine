@@ -61,7 +61,7 @@ GEM
       compass (~> 0.12.rc.0)
     daemons (1.1.8)
     database_cleaner (0.7.1)
-    devise (2.0.1)
+    devise (2.0.2)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.0.3)
       railties (~> 3.1)
@@ -158,6 +158,8 @@ GEM
     rdoc (3.12)
       json (~> 1.4)
     responders (0.6.5)
+    rest-client (1.6.7)
+      mime-types (>= 1.16)
     rspec (2.8.0)
       rspec-core (~> 2.8.0)
       rspec-expectations (~> 2.8.0)
@@ -220,6 +222,7 @@ DEPENDENCIES
   rails (= 3.2.1)
   rails_autolink
   rb-fsevent
+  rest-client
   rspec-rails
   sass-rails
   shoulda-matchers
