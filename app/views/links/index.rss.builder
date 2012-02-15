@@ -9,9 +9,12 @@ xml.rss :version => "2.0" do
       if youtube_url = detect_youtube_url(link.line)
         youtube_div = content_tag(:div, youtube_video(extract_youtube_id_from_url(youtube_url)))
       end
+      if link.image? && link.mirror_uri?
+        image = image_tag(link.mirror_uri)
+      end
       xml.item do
         xml.title link.line
-        xml.description "[#{link.created_at}] #{link.sender}> #{auto_link(h(link.line))} #{youtube_div}"
+        xml.description "[#{link.created_at}] #{link.sender}> #{auto_link(h(link.line))} #{youtube_div || image}"
         xml.pubDate link.created_at.to_s(:rfc822)
         # xml.link post_url(post)
         xml.guid link.id

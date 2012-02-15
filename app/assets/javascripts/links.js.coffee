@@ -8,3 +8,6 @@ $(document).ready () ->
   $('.youtube_button').live 'click', (event) ->
       $(this).parents('.link').children('.youtube_video').toggle()
       event.preventDefault()
+  $('.image_button').live 'click', (event) ->
+      $(this).parents('.link').children('.image').toggle()
+      event.preventDefault()

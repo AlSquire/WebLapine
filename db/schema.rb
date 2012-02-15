@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111029202150) do
+ActiveRecord::Schema.define(:version => 20120215190055) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.integer   "resource_id",   :null => false
@@ -53,23 +53,24 @@ ActiveRecord::Schema.define(:version => 20111029202150) do
     t.timestamp "created_at"
     t.timestamp "updated_at"
     t.string    "sender"
+    t.string    "mirror_uri"
   end
 
   add_index "links", ["network", "channel"], :name => "index_links_on_network_and_channel"
 
   create_table "log_tracks", :force => true do |t|
-    t.integer  "log_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer   "log_id"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
   end
 
   create_table "logs", :force => true do |t|
-    t.string   "network"
-    t.string   "channel"
-    t.text     "line"
-    t.string   "sender"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string    "network"
+    t.string    "channel"
+    t.text      "line"
+    t.string    "sender"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
   end
 
 end
