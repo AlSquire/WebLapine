@@ -66,4 +66,21 @@ describe Link do
     it { @link.imgur_image_uri.should be_nil }
     it { @link.mirror_uri.should be_nil }
   end
+
+  describe "#create with an 9gag uri" do
+    before do
+      line = "When you see it http://9gag.com/gag/4162289 you'll..."
+      Link.should_receive(:request_resource_mirroring).
+          with("http://d24w6bsrhbeh9d.cloudfront.net/photo/4162289_700b.jpg").
+          and_return('http://files.catstorage.com/12345.png')
+      VCR.use_cassette('9gag') do
+        @link = Link.create(:line => line, :network => "netnet", :channel => "chanchan", :sender => "xand")
+      end
+    end
+
+    it { @link.uri.should == "http://9gag.com/gag/4162289" }
+    it { @link.should be_ninegag }
+    it { @link.ninegag_image_uri.should == "http://d24w6bsrhbeh9d.cloudfront.net/photo/4162289_700b.jpg" }
+    it { @link.mirror_uri.should == "http://files.catstorage.com/12345.png" }
+  end
 end
