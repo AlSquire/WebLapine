@@ -11,3 +11,5 @@ $(document).ready () ->
   $('.image_button').live 'click', (event) ->
       $(this).parents('.link').children('.image').toggle()
       event.preventDefault()
+
+  $('.search').children('input[type=text]').focus (event) -> $(event.target).select()
