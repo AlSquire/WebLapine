@@ -51,4 +51,19 @@ describe Link do
     it { @link.imgur_image_uri.should == "http://i.imgur.com/Mg63N.jpg" }
     it { @link.mirror_uri.should == "http://files.catstorage.com/12345.png" }
   end
+
+  describe "#create with an imgur uri which don't contain an image" do
+    before do
+      line = "It's http://imgur.com/faq only"
+      Link.should_not_receive(:request_resource_mirroring)
+      VCR.use_cassette('imgur_faq') do
+        @link = Link.create(:line => line, :network => "netnet", :channel => "chanchan", :sender => "xand")
+      end
+    end
+
+    it { @link.uri.should == "http://imgur.com/faq" }
+    it { @link.should be_imgur }
+    it { @link.imgur_image_uri.should be_nil }
+    it { @link.mirror_uri.should be_nil }
+  end
 end

@@ -25,7 +25,7 @@ class Link < ActiveRecord::Base
   end
 
   def imgur_image_uri
-    @imgur_image_uri ||= Nokogiri::HTML(open(uri)).css('head > link[rel=image_src]').first.attr('href')
+    @imgur_image_uri ||= get_imgur_image_uri
   end
 
   private
@@ -35,7 +35,15 @@ class Link < ActiveRecord::Base
   end
 
   def mirror_imgur!
-    mirror_uri = self.class.request_resource_mirroring(imgur_image_uri)
-    update_attribute(:mirror_uri, mirror_uri) if mirror_uri
+    if imgur_image_uri
+      mirror_uri = self.class.request_resource_mirroring(imgur_image_uri)
+      update_attribute(:mirror_uri, mirror_uri) if mirror_uri
+    end
+  end
+
+  def get_imgur_image_uri
+    @imgur_doc ||= Nokogiri::HTML(open(uri))
+    tag = @imgur_doc.css('head > link[rel=image_src]').first
+    tag.attr('href') if tag
   end
 end
