@@ -48,8 +48,6 @@ group :development, :test do
   # gem 'mongrel'
   gem 'guard-livereload'
   gem 'yajl-ruby'
-  gem 'guard-spork'
-  gem 'spork'
 end
 
 
