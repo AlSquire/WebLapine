@@ -49,7 +49,7 @@ group :development, :test do
   gem 'guard-livereload'
   gem 'yajl-ruby'
   gem 'guard-spork'
-  gem 'spork', '~> 0.9.0rc'
+  gem 'spork'
 end
 
 

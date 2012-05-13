@@ -92,7 +92,7 @@ GEM
       em-websocket (>= 0.2.0)
       guard (>= 0.10.0)
       multi_json (~> 1.0)
-    guard-rspec (0.7.1)
+    guard-rspec (0.7.2)
       guard (>= 0.10.0)
     guard-spork (0.8.0)
       guard (>= 0.10.0)
@@ -228,7 +228,7 @@ DEPENDENCIES
   rspec-rails
   sass-rails
   shoulda-matchers
-  spork (~> 0.9.0rc)
+  spork
   sqlite3
   thin
   uglifier
