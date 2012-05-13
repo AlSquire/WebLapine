@@ -50,7 +50,6 @@ group :development, :test do
   gem 'yajl-ruby'
   gem 'webmock'
   gem 'vcr'
-  gem 'nokogiri'
 end
 
 
@@ -61,5 +60,6 @@ gem 'kaminari'
 # gem 'seed-fu'
 gem 'rails_autolink'
 gem 'rest-client'
+gem 'nokogiri'
 
 gem 'activeadmin'
