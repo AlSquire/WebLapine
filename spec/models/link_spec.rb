@@ -25,13 +25,30 @@ describe Link do
     before do
       line = "It's a great photo http://something.fr/cat.png xD"
       Link.should_receive(:request_resource_mirroring).
-          with("http://something.fr/cat.png").
-          and_return('http://files.catstorage.com/12345.png')
+           with("http://something.fr/cat.png").
+           and_return('http://files.catstorage.com/12345.png')
       @link = Link.create(:line => line, :network => "netnet", :channel => "chanchan", :sender => "xand")
     end
 
     it { @link.uri.should == "http://something.fr/cat.png" }
     it { @link.should be_image }
+    it { @link.mirror_uri.should == "http://files.catstorage.com/12345.png" }
+  end
+
+  describe "#create with an imgur uri" do
+    before do
+      line = "When you see it http://imgur.com/r/funny/Mg63N you'll..."
+      Link.should_receive(:request_resource_mirroring).
+          with("http://i.imgur.com/Mg63N.jpg").
+          and_return('http://files.catstorage.com/12345.png')
+      VCR.use_cassette('imgur') do
+        @link = Link.create(:line => line, :network => "netnet", :channel => "chanchan", :sender => "xand")
+      end
+    end
+
+    it { @link.uri.should == "http://imgur.com/r/funny/Mg63N" }
+    it { @link.should be_imgur }
+    it { @link.imgur_image_uri.should == "http://i.imgur.com/Mg63N.jpg" }
     it { @link.mirror_uri.should == "http://files.catstorage.com/12345.png" }
   end
 end

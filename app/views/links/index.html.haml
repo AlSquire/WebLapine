@@ -22,7 +22,7 @@
         - youtube_id = extract_youtube_id_from_url(youtube_url)
         %button.youtube_button Afficher/cacher la vidéo
         %div.youtube_video{ :style => 'display: none' }= youtube_video(youtube_id)
-      - elsif link.image? && link.mirror_uri?
+      - elsif link.mirror_uri?
         %button.image_button Afficher/cacher l'image
         %div.image{ :style => 'display: none' }= image_tag(link.mirror_uri)
 
