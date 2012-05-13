@@ -48,6 +48,9 @@ group :development, :test do
   # gem 'mongrel'
   gem 'guard-livereload'
   gem 'yajl-ruby'
+  gem 'webmock'
+  gem 'vcr'
+  gem 'nokogiri'
 end
 
 
