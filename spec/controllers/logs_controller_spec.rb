@@ -82,7 +82,7 @@ describe LogsController do
 
   describe 'GET :search .txt' do
     before do
-      Factory.create(:log, :line => 'search me')
+      FactoryGirl.create(:log, :line => 'search me')
       get :search, :network => 'freenode', :channel => 'ruby', :format => :txt,
           :term => 'search me'
     end
