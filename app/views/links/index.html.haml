@@ -11,6 +11,8 @@
 
 = paginate @links
 
+%button.show_all Tout déplier
+
 %ul
   - @links.each do |link|
     = content_tag_for(:li, link) do
