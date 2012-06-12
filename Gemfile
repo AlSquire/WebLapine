@@ -50,6 +50,7 @@ group :development, :test do
   gem 'yajl-ruby'
   gem 'webmock'
   gem 'vcr'
+  gem 'taps'
 end
 
 
