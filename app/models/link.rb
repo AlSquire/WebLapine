@@ -40,20 +40,20 @@ class Link < ActiveRecord::Base
   private
   def mirror_image!
     mirror_uri = self.class.request_resource_mirroring(uri)
-    update_attribute(:mirror_uri, mirror_uri) if mirror_uri
+    update_column(:mirror_uri, mirror_uri) if mirror_uri
   end
 
   def mirror_imgur!
     if imgur_image_uri
       mirror_uri = self.class.request_resource_mirroring(imgur_image_uri)
-      update_attribute(:mirror_uri, mirror_uri) if mirror_uri
+      update_column(:mirror_uri, mirror_uri) if mirror_uri
     end
   end
 
   def mirror_ninegag!
     if ninegag_image_uri
       mirror_uri = self.class.request_resource_mirroring(ninegag_image_uri)
-      update_attribute(:mirror_uri, mirror_uri) if mirror_uri
+      update_column(:mirror_uri, mirror_uri) if mirror_uri
     end
   end
 
