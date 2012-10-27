@@ -31,7 +31,7 @@ gem 'jquery-rails'
 # gem 'ruby-debug19'
 
 group :production do
-  gem 'pg'
+  gem 'mysql2'
   gem 'thin'
 end
 
