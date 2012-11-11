@@ -15,7 +15,7 @@
 
 %ul
   - @links.each do |link|
-    = content_tag_for(:li, link) do
+    = content_tag_for(:li, link, :class => [(:nws if link.nws?), (:nms if link.nms?)].compact.join(' ')) do
       .line
         = "#{link.sender}> "
         = auto_link(h(link.line)).html_safe

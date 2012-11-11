@@ -42,5 +42,11 @@ ul:nth-of-type(2) {
     .created_at {
       font-size: smaller;
     }
+    &.nws {
+      background-color: pink;
+    }
+    &.nms {
+      background-color: red;
+    }
   }
 }

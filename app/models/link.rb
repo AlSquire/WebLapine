@@ -37,6 +37,16 @@ class Link < ActiveRecord::Base
     @ninegag_image_uri ||= get_ninegag_image_uri
   end
 
+  # Tagged Not Safe For Work or Not Mind Safe
+  def nws?
+    nms? || line.match(/(nws|nsfw)/i)
+  end
+
+  # Tagged Not Mind Safe
+  def nms?
+    line.match(/(nms|nsfm)/i)
+  end
+
   private
   def mirror_image!
     mirror_uri = self.class.request_resource_mirroring(uri)

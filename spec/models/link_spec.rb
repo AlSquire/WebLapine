@@ -83,4 +83,52 @@ describe Link do
     it { @link.ninegag_image_uri.should == "http://d24w6bsrhbeh9d.cloudfront.net/photo/4162289_700b.jpg" }
     it { @link.mirror_uri.should == "http://files.catstorage.com/12345.png" }
   end
+
+  describe "warning tags" do
+    describe "safe" do
+      lines = [
+        "When you see it http://9gag.com/gag/4162289 you'll... no it's safe",
+        "It's ok. When you see it http://9gag.com/gag/4162289 you'll..."
+      ]
+
+      lines.each do |line|
+        describe "#{line}" do
+          before { @link = Link.new(:line => line) }
+          it { @link.should_not be_nws }
+          it { @link.should_not be_nms }
+        end
+      end
+
+    end
+
+    describe "#nws?" do
+      lines = [
+        "When you see it http://9gag.com/gag/4162289 you'll... NWS",
+        "Nsfw!!! When you see it http://9gag.com/gag/4162289 you'll..."
+      ]
+
+      lines.each do |line|
+        describe "#{line}" do
+          before { @link = Link.new(:line => line) }
+          it { @link.should be_nws }
+          it { @link.should_not be_nms }
+        end
+      end
+    end
+
+    describe "#nms?" do
+      lines = [
+        "When you see it http://9gag.com/gag/4162289 you'll... NMS",
+        "Nsfm!!! When you see it http://9gag.com/gag/4162289 you'll..."
+      ]
+
+      lines.each do |line|
+        describe "#{line}" do
+          before { @link = Link.new(:line => line) }
+          it { @link.should be_nms }
+          it { @link.should be_nws }
+        end
+      end
+    end
+  end
 end
