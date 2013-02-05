@@ -19,6 +19,8 @@ Record and list URIs it receives, by network and channel.
 * RSS feed
 
 #### Usage
+`:network` and `:channel` are arbitrary strings.
+
 * POST /:network/:channel/links create a record, params are `link[line]` and `link[sender]`
 * GET  /:network/:channel/links HTML frontend.
 
@@ -49,6 +51,8 @@ It should behave like this (here `MIRROR_SERVICE_URI` should be http://www.myche
 
 ### Logs
 By network and channel, record any line of text, especially compromising ones. Then, months later, ask for a random line and have a good laugh.
+
+`:network` and `:channel` are arbitrary strings.
 
 * POST /:network/:channel/logs record the line, params are `log[line]` and `log[sender]`
 * GET  /:network/:channel/logs HTML frontend, with search and pagination
