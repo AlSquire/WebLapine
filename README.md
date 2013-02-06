@@ -56,9 +56,9 @@ By network and channel, record any line of text, especially compromising ones. T
 
 * POST /:network/:channel/logs record the line, params are `log[line]` and `log[sender]`
 * GET  /:network/:channel/logs HTML frontend, with search and pagination
-* GET  /:network/:channel/random return a random line
-* GET  /:network/:channel/search param `term`, return a random line containing `term`
-* GET  /:network/:channel/previous return the last (or older with `offset` param) line returned with details on sender and creation date
+* GET  /:network/:channel/logs/random return a random line
+* GET  /:network/:channel/logs/search param `term`, return a random line containing `term`
+* GET  /:network/:channel/logs/previous return the last (or older with `offset` param) line returned with details on sender and creation date
 
 ### Admin
 Uses [ActiveAdmin](https://github.com/gregbell/active_admin) as a back office.
