@@ -2,7 +2,8 @@
 
 [![Build Status](https://secure.travis-ci.org/AlSquire/WebLapine.png)](http://travis-ci.org/AlSquire/WebLapine)
 
-A toy rails app, acting as a web front/backend for my personal IRC bot (the bot code is not included yet).
+A toy rails app, acting as a web front/backend for my personal IRC bot.
+The bot source is not included (yet), but if you already have one you can really adapt it, doing REST requests is the only requirement.
 
 Its main purpose is to save all the links and images that have been posted on an IRC channel.
 
