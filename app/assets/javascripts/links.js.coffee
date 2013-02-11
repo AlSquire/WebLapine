@@ -2,17 +2,17 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 $(document).ready () ->
-  $('.line a').live 'click', (event) ->
+  $('.line a').on 'click', (event) ->
     window.open $(this).attr('href')
     event.preventDefault()
-  $('.youtube_button').live 'click', (event) ->
+  $('.youtube_button').on 'click', (event) ->
       $(this).parents('.link').children('.youtube_video').toggle()
       event.preventDefault()
-  $('.image_button').live 'click', (event) ->
+  $('.image_button').on 'click', (event) ->
       $(this).parents('.link').children('.image').toggle()
       event.preventDefault()
 
-  $('.show_all').live 'click', (event) ->
+  $('.show_all').on 'click', (event) ->
     $('.link:not(.nws)').children('.image, .youtube_video').show()
     event.preventDefault()
 
