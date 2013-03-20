@@ -8,15 +8,13 @@ describe LinksController do
 
     it { should respond_with(:success) }
     it do
-      should assign_to(:network)
       assigns(:network).should == 'freenode'
     end
     it do
-      should assign_to(:channel)
       assigns(:channel).should == 'ruby'
     end
     it do
-      should assign_to(:links)
+      assigns(:links).should_not be_nil
     end
   end
 
@@ -28,15 +26,13 @@ describe LinksController do
 
     it { should respond_with(:success) }
     it do
-      should assign_to(:network)
       assigns(:network).should == 'freenode'
     end
     it do
-      should assign_to(:channel)
       assigns(:channel).should == 'ruby'
     end
     it do
-      should assign_to(:links)
+      assigns(:links).should_not be_nil
     end
   end
 
@@ -47,15 +43,13 @@ describe LinksController do
 
     it { should respond_with(:success) }
     it do
-      should assign_to(:network)
       assigns(:network).should == 'freenode'
     end
     it do
-      should assign_to(:channel)
       assigns(:channel).should == 'ruby'
     end
     it do
-      should assign_to(:links)
+      assigns(:links).should_not be_nil
     end
   end
 
@@ -67,7 +61,6 @@ describe LinksController do
 
     it { should respond_with(:success) }
     it do
-      should assign_to(:link)
       assigns(:link).should be_valid
       assigns(:link).should be_persisted
     end

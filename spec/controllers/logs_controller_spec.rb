@@ -4,11 +4,9 @@ describe LogsController do
 
   shared_examples 'an irc scoped action' do
     it do
-      should assign_to(:network)
       assigns(:network).should == 'freenode'
     end
     it do
-      should assign_to(:channel)
       assigns(:channel).should == 'ruby'
     end
   end
@@ -25,7 +23,7 @@ describe LogsController do
     it_behaves_like 'an irc scoped action'
 
     it { should respond_with(:success) }
-    it { should assign_to(:logs) }
+    it { assigns(:logs).should_not be_nil }
   end
 
   describe 'GET :index with search param' do
@@ -37,7 +35,7 @@ describe LogsController do
     it_behaves_like 'an irc scoped action'
 
     it { should respond_with(:success) }
-    it { should assign_to(:logs) }
+    it { assigns(:logs).should_not be_nil }
   end
 
   describe 'GET :index .rss' do
@@ -48,7 +46,7 @@ describe LogsController do
     it_behaves_like 'an irc scoped action'
 
     it { should respond_with(:success) }
-    it { should assign_to(:logs) }
+    it { assigns(:logs).should_not be_nil }
   end
 
   describe 'POST :create' do
@@ -61,7 +59,6 @@ describe LogsController do
 
     it { should respond_with(:success) }
     it do
-      should assign_to(:log)
       assigns(:log).should be_valid
       assigns(:log).should be_persisted
     end
@@ -77,7 +74,7 @@ describe LogsController do
     it_behaves_like 'an irc scoped action'
 
     it { should respond_with(:success) }
-    it { should assign_to(:log) }
+    it { assigns(:log).should_not be_nil }
   end
 
   describe 'GET :search .txt' do
@@ -90,7 +87,7 @@ describe LogsController do
     it_behaves_like 'an irc scoped action'
 
     it { should respond_with(:success) }
-    it { should assign_to(:log) }
+    it { assigns(:log).should_not be_nil }
   end
 
   describe 'GET :previous .txt' do
@@ -104,6 +101,6 @@ describe LogsController do
     it_behaves_like 'an irc scoped action'
 
     it { should respond_with(:success) }
-    it { should assign_to(:log) }
+    it { assigns(:log).should_not be_nil }
   end
 end
