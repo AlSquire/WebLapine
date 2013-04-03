@@ -3,14 +3,16 @@ WebLapine::Application.routes.draw do
 
   devise_for :admin_users, ActiveAdmin::Devise.config
 
-  get  ':network/:channel/links' => 'links#index'
-  post ':network/:channel/links' => 'links#create'
+  scope ':network/:channel' do
+    get  'links' => 'links#index'
+    post 'links' => 'links#create'
 
-  get  ':network/:channel/logs'          => 'logs#index'
-  get  ':network/:channel/logs/random'   => 'logs#random'
-  get  ':network/:channel/logs/search'   => 'logs#search'
-  get  ':network/:channel/logs/previous' => 'logs#previous'
-  post ':network/:channel/logs'          => 'logs#create'
+    get  'logs'          => 'logs#index'
+    get  'logs/random'   => 'logs#random'
+    get  'logs/search'   => 'logs#search'
+    get  'logs/previous' => 'logs#previous'
+    post 'logs'          => 'logs#create'
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
