@@ -18,7 +18,7 @@ group :assets do
   gem 'compass-rails'
 end
 
-gem 'jquery-rails'
+gem 'jquery-rails', '~> 2.3.0'
 
 # Use unicorn as the web server
 # gem 'unicorn'
