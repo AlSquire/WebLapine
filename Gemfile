@@ -16,6 +16,8 @@ gem 'compass-rails', '~> 2.0.alpha.0' # Rails 4 compatibility
 
 gem 'jquery-rails'
 
+gem 'rails_12factor'
+
 # Use unicorn as the web server
 # gem 'unicorn'
 
