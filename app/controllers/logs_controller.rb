@@ -14,7 +14,7 @@ class LogsController < ApplicationController
   end
 
   def create
-    @log = Log.new(params[:log])
+    @log = Log.new(params.require(:log).permit(:sender, :line))
     @log.network = params[:network]
     @log.channel = params[:channel]
     @log.save

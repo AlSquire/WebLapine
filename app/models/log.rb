@@ -1,7 +1,7 @@
 class Log < ActiveRecord::Base
   has_many :log_tracks
 
-  default_scope order(arel_table[:created_at].desc)
+  default_scope { order(arel_table[:created_at].desc) }
   scope :search, lambda { |term| where(arel_table[:line].matches("%#{term.strip}%")) }
 
   validates_presence_of :network, :channel, :sender, :line

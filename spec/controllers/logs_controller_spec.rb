@@ -11,7 +11,7 @@ describe LogsController do
     end
   end
 
-  before(:all) do
+  before do
     FactoryGirl.create(:log)
   end
 

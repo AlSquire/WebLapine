@@ -2,23 +2,19 @@ source 'https://rubygems.org'
 
 ruby '2.0.0' unless ENV['TRAVIS']
 
-gem 'rails', '3.2.13'
+gem 'rails', '4.0'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 # gem 'sqlite3'
 
-# Gems used only for assets and not required
-# in production environments by default.
-group :assets do
-  gem 'sass-rails'
-  gem 'coffee-rails'
-  gem 'uglifier'
-  gem 'compass-rails'
-end
+gem 'sass-rails'
+gem 'coffee-rails'
+gem 'uglifier'
+gem 'compass-rails', '~> 2.0.alpha.0' # Rails 4 compatibility
 
-gem 'jquery-rails', '~> 2.3.0'
+gem 'jquery-rails'
 
 # Use unicorn as the web server
 # gem 'unicorn'
@@ -46,7 +42,7 @@ group :development, :test do
   # gem 'delorean'
   gem 'rb-fsevent'
   gem 'growl'
-  gem 'database_cleaner'
+  gem 'database_cleaner', '1.0.1' # https://github.com/bmabey/database_cleaner/issues/224
   # gem 'mongrel'
   gem 'guard-livereload'
   gem 'yajl-ruby'
@@ -65,4 +61,5 @@ gem 'rails_autolink'
 gem 'rest-client'
 gem 'nokogiri'
 
-gem 'activeadmin'
+# http://stackoverflow.com/questions/16426398/active-admin-install-with-rails-4
+gem 'activeadmin',         github: 'gregbell/active_admin', branch: 'rails4'

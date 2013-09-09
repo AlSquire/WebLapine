@@ -14,7 +14,7 @@ class LinksController < ApplicationController
   end
 
   def create
-    @link = Link.new(params[:link])
+    @link = Link.new(params.require(:link).permit(:sender, :line))
     @link.network = params[:network]
     @link.channel = params[:channel]
     @link.save
