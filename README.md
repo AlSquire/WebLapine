@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/AlSquire/WebLapine.png?label=ready)](https://waffle.io/AlSquire/WebLapine)  
 # WebLapine
 
 [![Build Status](https://secure.travis-ci.org/AlSquire/WebLapine.png)](http://travis-ci.org/AlSquire/WebLapine)
