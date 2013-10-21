@@ -16,8 +16,6 @@ gem 'compass-rails', '~> 2.0.alpha.0' # Rails 4 compatibility
 
 gem 'jquery-rails'
 
-gem 'rails_12factor'
-
 # Use unicorn as the web server
 # gem 'unicorn'
 
@@ -31,21 +29,19 @@ gem 'rails_12factor'
 group :production do
   gem 'mysql2'
   gem 'thin'
+  gem 'rails_12factor'
 end
 
 group :development, :test do
-  # gem 'ruby-debug'
   gem 'sqlite3'
   gem 'rspec-rails'
   gem 'guard-rspec'
   gem 'factory_girl_rails'
   gem 'shoulda-matchers'
-  # gem 'autotest'
   # gem 'delorean'
   gem 'rb-fsevent'
   gem 'growl'
-  gem 'database_cleaner', '1.0.1' # https://github.com/bmabey/database_cleaner/issues/224
-  # gem 'mongrel'
+  gem 'database_cleaner'
   gem 'guard-livereload'
   gem 'yajl-ruby'
   gem 'webmock'
@@ -53,15 +49,11 @@ group :development, :test do
   gem 'taps'
 end
 
-
-# gem 'devise'
 gem 'haml'
-# gem 'paperclip'
 gem 'kaminari'
-# gem 'seed-fu'
 gem 'rails_autolink'
 gem 'rest-client'
 gem 'nokogiri'
 
 # http://stackoverflow.com/questions/16426398/active-admin-install-with-rails-4
-gem 'activeadmin',         github: 'gregbell/active_admin', branch: 'rails4'
+gem 'activeadmin', github: 'gregbell/active_admin'
