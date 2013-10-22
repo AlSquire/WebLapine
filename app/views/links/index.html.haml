@@ -1,32 +1,51 @@
 - content_for(:html_head) do
-  %link{ :rel => "alternate", :type => "application/rss+xml", :title => "Les bons liens #{@network}/#{@channel}", :href => url_for(:only_path => false, :format => :rss) }
+  %link{ rel: "alternate", type: "application/rss+xml", title: "Les bons liens #{@network}/#{@channel}", href: url_for(only_path: false, format: :rss) }
 
-%h1
-  = link_to "Les bons liens #{@network}/#{@channel}"
+%nav.navbar.navbar-default{ role: "navigation" }
+  .navbar-header
+    %button.navbar-toggle{ data: { target: ".navbar-ex1-collapse", toggle: "collapse" }, type: "button" }
+      %span.sr-only Toggle navigation
+      %span.icon-bar
+      %span.icon-bar
+      %span.icon-bar
+    = link_to "##{@channel}", nil, class: "navbar-brand"
+  .collapse.navbar-collapse.navbar-ex1-collapse
+    %ul.nav.navbar-nav
+      %li.active
+        = link_to "Links", controller: :links
+      %li
+        = link_to "Logs", controller: :logs
+    %ul.nav.navbar-nav.navbar-right
+      %li= link_to 'RSS', url_for(format: :rss)
+      %form.navbar-form.navbar-left{ role: "search" }
+        .form-group
+          %input.form-control{ name: 'search', placeholder: "Search", type: "text", value: params[:search] }
+        %button.btn.btn-default{ type: "submit" }
+          %span.glyphicon.glyphicon-search
 
-.search
-  = form_tag nil, :method => :get do
-    = submit_tag "Rechercher"
-    = text_field_tag :search, params[:search]
+.row
+  .col-md-4
+    %button.show_all.btn
+      Show all
+      %span.glyphicon.glyphicon-chevron-down
+  .col-md-8{ style: "text-align: right" }
+    = paginate @links
 
-= paginate @links
-
-%button.show_all Tout déplier
-
-%ul
+%ul#links.list-group
   - @links.each do |link|
-    = content_tag_for(:li, link, :class => [(:nws if link.nws?), (:nms if link.nms?)].compact.join(' ')) do
+    = content_tag_for(:li, link, class: ['list-group-item', (:nws if link.nws?), (:nms if link.nms?)].compact.join(' ')) do
       .line
         = "#{link.sender}> "
         = auto_link(h(link.line)).html_safe
       .created_at= timeago(link.created_at)
       - if youtube_url = detect_youtube_url(link.line)
         - youtube_id = extract_youtube_id_from_url(youtube_url)
-        %button.youtube_button Afficher/cacher la vidéo
-        %div.youtube_video{ :style => 'display: none' }= youtube_video(youtube_id)
+        %button.youtube_button.btn.btn-xs Show/hide video
+        %div.youtube_video{ style: 'display: none' }
+          .flex-video.widescreen= youtube_video(youtube_id)
       - elsif link.mirror_uri?
-        %button.image_button Afficher/cacher l'image
-        %div.image{ :style => 'display: none' }= image_tag(link.mirror_uri)
+        %button.image_button.btn.btn-xs Show/hide picture
+        %div.image{ style: 'display: none' }= image_tag(link.mirror_uri, class: 'img-thumbnail')
 
 = paginate @links
     

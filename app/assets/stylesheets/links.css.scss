@@ -7,38 +7,34 @@
 @import "compass/utilities";
 
 body {
-  @include background(linear-gradient(top, #ccc, #fff 30px));
+  padding-top: 70px;
 }
 
-h1 {
-  @include single-text-shadow(rgba(black, 0.5), 0.1em, 0.1em, 0.1em);
+ul.pagination {
+  margin:0;
 }
 
-ul:nth-of-type(1) {
-  li:nth-of-type(2) {
-    a {
-      padding: 1px;
-      border: solid 1px darkorange;
-      @include border-radius(2px);
-      background-color: orange;
-      @include background(linear-gradient(top, #f90, #fc6 1em));
-      font-size: smaller;
-      font-weight: bold;
-      font-family: sans-serif;
-      color: white;
-      text-decoration: none;
-      @include single-text-shadow(rgba(black, 0.2), 0, 1px);
-      &:hover {
-        text-decoration: underline;
-        @include background(linear-gradient(top, #fc6, #f90 1em));
-      }
-    }
+a.rss {
+  padding: 1px;
+  border: solid 1px darkorange;
+  @include border-radius(2px);
+  background-color: orange;
+  @include background(linear-gradient(top, #f90, #fc6 1em));
+  font-size: smaller;
+  font-weight: bold;
+  font-family: sans-serif;
+  color: white;
+  text-decoration: none;
+  @include single-text-shadow(rgba(black, 0.2), 0, 1px);
+  &:hover {
+    text-decoration: underline;
+    @include background(linear-gradient(top, #fc6, #f90 1em));
   }
 }
 
-ul:nth-of-type(2) {
+ul#links, ul#logs {
   li {
-    padding: 2px;
+    # padding: 2px;
     .created_at {
       font-size: smaller;
     }
@@ -48,5 +44,34 @@ ul:nth-of-type(2) {
     &.nms {
       background-color: red;
     }
+    .youtube_video {
+      max-width: 600px;
+    }
   }
+}
+
+// From http://stackoverflow.com/questions/12166784/how-to-implement-a-responsive-youtube-embed-iframe-with-twitter-bootstrap
+.flex-video {
+  position: relative;
+  padding-top: 25px;
+  padding-bottom: 67.5%;
+  height: 0;
+  margin-bottom: 16px;
+  overflow: hidden;
+}
+
+.flex-video.widescreen { padding-bottom: 57.25%; }
+.flex-video.vimeo { padding-top: 0; }
+
+.flex-video iframe,
+.flex-video object,
+.flex-video embed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+@media only screen and (max-device-width: 800px), only screen and (device-width: 1024px) and (device-height: 600px), only screen and (width: 1280px) and (orientation: landscape), only screen and (device-width: 800px), only screen and (max-width: 767px) {
+  .flex-video { padding-top: 0; }
 }

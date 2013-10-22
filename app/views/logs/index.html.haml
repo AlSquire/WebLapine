@@ -1,19 +1,36 @@
 - content_for(:html_head) do
-  %link{ :rel => "alternate", :type => "application/rss+xml", :title => "Les bons logs #{@network}/#{@channel}", :href => url_for(:only_path => false, :format => :rss) }
+  %link{ rel: "alternate", type: "application/rss+xml", title: "Les bons logs #{@network}/#{@channel}", href: url_for(only_path: false, format: :rss) }
 
-%h1
-  = link_to "Les bons logs #{@network}/#{@channel}"
+%nav.navbar.navbar-default{ role: "navigation" }
+  .navbar-header
+    %button.navbar-toggle{ data: { target: ".navbar-ex1-collapse", toggle: "collapse" }, type: "button" }
+      %span.sr-only Toggle navigation
+      %span.icon-bar
+      %span.icon-bar
+      %span.icon-bar
+    = link_to "##{@channel}", nil, class: "navbar-brand"
+  .collapse.navbar-collapse.navbar-ex1-collapse
+    %ul.nav.navbar-nav
+      %li
+        = link_to "Links", controller: :links
+      %li.active
+        = link_to "Logs", controller: :logs
+    %ul.nav.navbar-nav.navbar-right
+      %li= link_to 'RSS', url_for(format: :rss)
+      %form.navbar-form.navbar-left{ role: "search" }
+        .form-group
+          %input.form-control{ name: 'search', placeholder: "Search", type: "text", value: params[:search] }
+        %button.btn.btn-default{ type: "submit" }
+          %span.glyphicon.glyphicon-search
 
-.search
-  = form_tag nil, :method => :get do
-    = submit_tag "Rechercher"
-    = text_field_tag :search, params[:search]
+.row
+  .col-md-4
+  .col-md-8{ style: "text-align: right" }
+    = paginate @logs
 
-= paginate @logs
-
-%ul#logs
+%ul#logs.list-group
   - @logs.each do |log|
-    = content_tag_for(:li, log) do
+    = content_tag_for(:li, log, class: 'list-group-item') do
       .line= auto_link(h(log.line)).html_safe
       .sender
         added by 

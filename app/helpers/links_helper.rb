@@ -4,7 +4,7 @@ module LinksHelper
   #   http://www.youtube.com/watch?v=_O7iUiftbKU&feature=relmfu
 
   def youtube_video(video_id)
-    embed_code = '<iframe src="http://www.youtube.com/embed/' + h(video_id) + '"></iframe>'
+    embed_code = '<iframe src="http://www.youtube.com/embed/' + h(video_id) + '" frameborder="0" allowfullscreen></iframe>'
     embed_code.html_safe
   end
 

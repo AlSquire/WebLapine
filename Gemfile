@@ -13,6 +13,7 @@ gem 'sass-rails'
 gem 'coffee-rails'
 gem 'uglifier'
 gem 'compass-rails', '~> 2.0.alpha.0' # Rails 4 compatibility
+gem 'anjlab-bootstrap-rails', require: 'bootstrap-rails', github: 'anjlab/bootstrap-rails'
 
 gem 'jquery-rails'
 
@@ -51,6 +52,7 @@ end
 
 gem 'haml'
 gem 'kaminari'
+gem 'kaminari-bootstrap', github: 'mcasimir/kaminari-bootstrap'
 gem 'rails_autolink'
 gem 'rest-client'
 gem 'nokogiri'

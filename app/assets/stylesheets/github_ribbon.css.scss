@@ -1,10 +1,11 @@
 @import "compass/css3";
 // From: http://unindented.org/articles/2009/10/github-ribbon-using-css-transforms/
-.ribbon {
+#ribbon {
+  z-index: 5000;
   background-color: #a00;
   overflow: hidden;
   /* top right corner */
-  position: fixed;
+  position: absolute;
   right: -3em;
   top: 2.5em;
   /* 45 deg cw rotation */

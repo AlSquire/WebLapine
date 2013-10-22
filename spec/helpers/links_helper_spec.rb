@@ -13,7 +13,7 @@ require 'spec_helper'
 describe LinksHelper do
   describe "youtube_video" do
     it "return the html code for the video" do
-      helper.youtube_video('ZnehCBoYLbc').should == '<iframe src="http://www.youtube.com/embed/ZnehCBoYLbc"></iframe>'
+      helper.youtube_video('ZnehCBoYLbc').should == '<iframe src="http://www.youtube.com/embed/ZnehCBoYLbc" frameborder="0" allowfullscreen></iframe>'
     end
   end
 
