@@ -55,5 +55,7 @@ gem 'rails_autolink'
 gem 'rest-client'
 gem 'nokogiri'
 
+gem 'rack-google-analytics'
+
 # http://stackoverflow.com/questions/16426398/active-admin-install-with-rails-4
 gem 'activeadmin', github: 'gregbell/active_admin'
