@@ -1,7 +1,8 @@
 # WebLapine
 
 [![Build Status](https://secure.travis-ci.org/AlSquire/WebLapine.png)](http://travis-ci.org/AlSquire/WebLapine)
-[![Stories in Ready](https://badge.waffle.io/AlSquire/WebLapine.png?label=ready)](https://waffle.io/AlSquire/WebLapine)  
+[![Stories in Ready](https://badge.waffle.io/AlSquire/WebLapine.png?label=ready)](https://waffle.io/AlSquire/WebLapine)
+[![Code Climate](https://codeclimate.com/github/AlSquire/WebLapine.png)](https://codeclimate.com/github/AlSquire/WebLapine)
 
 A toy rails app, acting as a web front/backend for my personal IRC bot.
 
