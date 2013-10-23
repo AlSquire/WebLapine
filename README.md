@@ -70,4 +70,3 @@ Uses [ActiveAdmin](https://github.com/gregbell/active_admin) as a back office.
 ## TODO
 * Release an example IRC bot code (preferably Hubot) and maybe deployment instruction on Heroku.
 * Need auth, at least a minimal one for POSTs.
-* The CSS right now is just plain wrong.
