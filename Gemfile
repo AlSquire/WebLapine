@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.0.0' unless ENV['TRAVIS']
+ruby '2.1.0' unless ENV['TRAVIS']
 
 gem 'rails', '4.0'
 
@@ -12,7 +12,7 @@ gem 'rails', '4.0'
 gem 'sass-rails'
 gem 'coffee-rails'
 gem 'uglifier'
-gem 'compass-rails', '~> 2.0.alpha.0' # Rails 4 compatibility
+gem 'compass-rails'
 gem 'anjlab-bootstrap-rails', require: 'bootstrap-rails', github: 'anjlab/bootstrap-rails'
 
 gem 'jquery-rails'
