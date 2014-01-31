@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 ruby '2.1.0' unless ENV['TRAVIS']
 
-gem 'rails', '4.0'
+gem 'rails', '4.0.2'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
