@@ -23,8 +23,8 @@ describe LinksHelper do
       helper.extract_youtube_id_from_url(url).should == 'ZnehCBoYLbc'
     end
 
-    it "extract the youtube video id from a youtube video url with more params" do
-      url = "http://www.youtube.com/watch?v=_O7iUiftbKU&feature=relmfu"
+    it "extract the youtube video id from a youtube video url with more params an https" do
+      url = "https://www.youtube.com/watch?v=_O7iUiftbKU&feature=relmfu"
       helper.extract_youtube_id_from_url(url).should == '_O7iUiftbKU'
     end
   end
@@ -33,6 +33,11 @@ describe LinksHelper do
     it "detect and return a youtube video url from a string" do
       line = "This i a really kewl vid: http://www.youtube.com/watch?v=ZnehCBoYLbc !! lol"
       helper.detect_youtube_url(line).should == "http://www.youtube.com/watch?v=ZnehCBoYLbc"
+    end
+
+    it "detect and return a https youtube video url from a string" do
+      line = "This i a really kewl vid: https://www.youtube.com/watch?v=ZnehCBoYLbc !! lol"
+      helper.detect_youtube_url(line).should == "https://www.youtube.com/watch?v=ZnehCBoYLbc"
     end
 
     it "return false when there is no youtube video url" do

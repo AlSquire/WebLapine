@@ -13,7 +13,7 @@ module LinksHelper
   end
 
   def detect_youtube_url(line)
-    regexp = /http:\/\/www.youtube.com\/watch\?[^\s]*/
+    regexp = /http[s]?:\/\/www.youtube.com\/watch\?[^\s]*/
     match = line.match(regexp)
     match[0] if match
   end
