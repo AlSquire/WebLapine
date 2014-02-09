@@ -39,12 +39,12 @@ class Link < ActiveRecord::Base
 
   # Tagged Not Safe For Work or Not Mind Safe
   def nws?
-    nms? || line.match(/(nws|nsfw)/i)
+    nms? || line.split(' ').any? { |word| word.match(/^(nws|nsfw[.?!]*)$/i) }
   end
 
   # Tagged Not Mind Safe
   def nms?
-    line.match(/(nms|nsfm)/i)
+    line.split(' ').any? { |word| word.match(/^(nms|nsfm[.?!]*)$/i) }
   end
 
   private

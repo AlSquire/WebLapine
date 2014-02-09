@@ -88,7 +88,8 @@ describe Link do
     describe "safe" do
       lines = [
         "When you see it http://9gag.com/gag/4162289 you'll... no it's safe",
-        "It's ok. When you see it http://9gag.com/gag/4162289 you'll..."
+        "It's ok. When you see it http://9gag.com/gag/4162289 you'll...",
+         "An url with a tag http://youtube.com/abNMScNWS ho it is?"
       ]
 
       lines.each do |line|
