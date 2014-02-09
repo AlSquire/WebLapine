@@ -17,6 +17,11 @@ describe LinksHelper do
       url = "https://www.youtube.com/watch?v=_O7iUiftbKU&feature=relmfu"
       helper.extract_youtube_id_from_url(url).should == '_O7iUiftbKU'
     end
+
+    it "extract the youtube video id from a short youtube video url" do
+      url = "http://youtu.be/_O7iUiftbKU"
+      helper.extract_youtube_id_from_url(url).should == '_O7iUiftbKU'
+    end
   end
 
   describe "detect_youtube_url" do
@@ -30,7 +35,10 @@ describe LinksHelper do
       helper.detect_youtube_url(line).should == "https://www.youtube.com/watch?v=ZnehCBoYLbc"
     end
 
-
+    it "detect and return a short youtube video url from a string" do
+      line = "This i a really kewl vid: http://youtu.be/ZnehCBoYLbc !! lol"
+      helper.detect_youtube_url(line).should == "http://youtu.be/ZnehCBoYLbc"
+    end
 
     it "return false when there is no youtube video url" do
       line = "No video here, but a link http://www.yousuck.com/dontwatch?v=ZnehCBoYLbc !!"
