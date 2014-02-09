@@ -38,6 +38,9 @@ ul#links, ul#logs {
     .created_at {
       font-size: smaller;
     }
+    &.spoiler {
+      background-color: orange;
+    }
     &.nws {
       background-color: pink;
     }

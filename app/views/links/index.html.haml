@@ -33,7 +33,7 @@
 
 %ul#links.list-group
   - @links.each do |link|
-    = content_tag_for(:li, link, class: ['list-group-item', (:nws if link.nws?), (:nms if link.nms?)].compact.join(' ')) do
+    = content_tag_for(:li, link, class: ['list-group-item', (:nws if link.nws?), (:nms if link.nms?), (:spoiler if link.spoiler?)].compact.join(' ')) do
       .line
         = "#{link.sender}> "
         = auto_link(h(link.line)).html_safe

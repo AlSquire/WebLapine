@@ -97,6 +97,7 @@ describe Link do
           before { @link = Link.new(:line => line) }
           it { @link.should_not be_nws }
           it { @link.should_not be_nms }
+          it { @link.should_not be_spoiler }
         end
       end
 
@@ -119,7 +120,7 @@ describe Link do
 
     describe "#nms?" do
       lines = [
-        "When you see it http://9gag.com/gag/4162289 you'll... NMS",
+        "When you see it http://9gag.com/gag/4162289 you'll... NMS!",
         "Nsfm!!! When you see it http://9gag.com/gag/4162289 you'll..."
       ]
 
@@ -128,6 +129,20 @@ describe Link do
           before { @link = Link.new(:line => line) }
           it { @link.should be_nms }
           it { @link.should be_nws }
+        end
+      end
+    end
+
+    describe "#spoiler?" do
+      lines = [
+        "http://9gag.com/gag/4162289 hey spoil!",
+        "Spoiler: When you see it http://9gag.com/gag/4162289 you'll..."
+      ]
+
+      lines.each do |line|
+        describe "#{line}" do
+          before { @link = Link.new(:line => line) }
+          it { @link.should be_spoiler }
         end
       end
     end
