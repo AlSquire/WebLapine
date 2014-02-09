@@ -1,15 +1,5 @@
 require 'spec_helper'
 
-# Specs in this file have access to a helper object that includes
-# the LinksHelper. For example:
-#
-# describe LinksHelper do
-#   describe "string concat" do
-#     it "concats two strings with spaces" do
-#       helper.concat_strings("this","that").should == "this that"
-#     end
-#   end
-# end
 describe LinksHelper do
   describe "youtube_video" do
     it "return the html code for the video" do
@@ -39,6 +29,8 @@ describe LinksHelper do
       line = "This i a really kewl vid: https://www.youtube.com/watch?v=ZnehCBoYLbc !! lol"
       helper.detect_youtube_url(line).should == "https://www.youtube.com/watch?v=ZnehCBoYLbc"
     end
+
+
 
     it "return false when there is no youtube video url" do
       line = "No video here, but a link http://www.yousuck.com/dontwatch?v=ZnehCBoYLbc !!"
