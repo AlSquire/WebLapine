@@ -13,7 +13,7 @@ $(document).ready () ->
       event.preventDefault()
 
   $('.show_all').on 'click', (event) ->
-    $('.link:not(.nws)').children('.image, .youtube_video').show()
+    $('.link:not(.nws, .spoiler)').children('.image, .youtube_video').show()
     event.preventDefault()
 
   $('.search').children('input[type=text]').focus (event) -> $(event.target).select()
