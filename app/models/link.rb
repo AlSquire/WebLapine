@@ -39,12 +39,12 @@ class Link < ActiveRecord::Base
 
   # Tagged Not Safe For Work or Not Mind Safe
   def nws?
-    nms? || line.split(' ').any? { |word| word.match(/^(nws|nsfw)[^\w]*$/i) }
+    nms? || line.split(' ').any? { |word| word.match(/^[^\w]?(nws|nsfw)[^\w]*$/i) }
   end
 
   # Tagged Not Mind Safe
   def nms?
-    line.split(' ').any? { |word| word.match(/^(nms|nsfm)[^\w]*$/i) }
+    line.split(' ').any? { |word| word.match(/^[^\w]?(nms|nsfm)[^\w]*$/i) }
   end
 
   # Tagged as Spoiler

@@ -106,7 +106,8 @@ describe Link do
     describe "#nws?" do
       lines = [
         "When you see it http://9gag.com/gag/4162289 you'll... NWS",
-        "Nsfw!!! When you see it http://9gag.com/gag/4162289 you'll..."
+        "Nsfw!!! When you see it http://9gag.com/gag/4162289 you'll...",
+        "http://9gag.com/gag/4162289 (nws)"
       ]
 
       lines.each do |line|
@@ -121,7 +122,8 @@ describe Link do
     describe "#nms?" do
       lines = [
         "When you see it http://9gag.com/gag/4162289 you'll... NMS!",
-        "Nsfm!!! When you see it http://9gag.com/gag/4162289 you'll..."
+        "Nsfm!!! When you see it http://9gag.com/gag/4162289 you'll...",
+        "http://9gag.com/gag/4162289 (nms)"
       ]
 
       lines.each do |line|
