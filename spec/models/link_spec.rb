@@ -137,7 +137,8 @@ describe Link do
       lines = [
         "http://9gag.com/gag/4162289 hey spoil!",
         "Spoiler: When you see it http://9gag.com/gag/4162289 you'll...",
-        "Dem spoilers http://9gag.com/gag/4162289"
+        "Dem spoilers http://9gag.com/gag/4162289",
+        "http://9gag.com/gag/4162289 (spoilers)"
       ]
 
       lines.each do |line|

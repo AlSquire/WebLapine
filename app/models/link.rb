@@ -50,7 +50,7 @@ class Link < ActiveRecord::Base
   # Tagged as Spoiler
   def spoiler?
     # line.split(' ').any? { |word| word.match(/^(spoil|spoiler)[.?!:]*$/i) }
-    line.split(' ').any? { |word| word.match(/^(spoil|spoiler|spoilers)[^\w]*$/i) }
+    line.split(' ').any? { |word| word.match(/^[^\w]?(spoil|spoiler|spoilers)[^\w]*$/i) }
   end
 
   private
