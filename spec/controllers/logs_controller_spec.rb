@@ -28,7 +28,7 @@ describe LogsController do
 
   describe 'GET :index with search param' do
     before do
-      Log.should_receive(:search).with('term').and_return(Log)
+      Log.should_receive(:search_text).with('term').and_return(Log)
       get :index, :network => 'freenode', :channel => 'ruby', :search => 'term'
     end
 

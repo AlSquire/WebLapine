@@ -1,19 +1,19 @@
 source 'https://rubygems.org'
 
-ruby '2.1.0' unless ENV['TRAVIS']
+ruby '2.1.2' unless ENV['TRAVIS']
 
-gem 'rails', '4.0.3'
+gem 'rails', '4.1.5'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 # gem 'sqlite3'
 
-gem 'sass-rails'
-gem 'coffee-rails'
+gem 'sass-rails', '~> 4.0.0'
+gem 'coffee-rails', '~> 4.0.0'
 gem 'uglifier'
 gem 'compass-rails'
-gem 'anjlab-bootstrap-rails', require: 'bootstrap-rails', github: 'anjlab/bootstrap-rails'
+gem 'bootstrap-sass'
 
 gem 'jquery-rails'
 
@@ -35,8 +35,10 @@ end
 
 group :development, :test do
   gem 'sqlite3'
+  gem 'rspec', '< 2.99.0'
   gem 'rspec-rails'
   gem 'guard-rspec'
+  gem 'spring-commands-rspec'
   gem 'factory_girl_rails'
   gem 'shoulda-matchers'
   # gem 'delorean'
@@ -59,5 +61,7 @@ gem 'nokogiri'
 
 gem 'rack-google-analytics'
 
-# http://stackoverflow.com/questions/16426398/active-admin-install-with-rails-4
+gem 'ransack', github: 'activerecord-hackery/ransack', branch: 'rails-4.1'
+gem 'polyamorous', github: 'activerecord-hackery/polyamorous'
 gem 'activeadmin', github: 'gregbell/active_admin'
+gem 'devise'

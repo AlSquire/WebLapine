@@ -19,16 +19,16 @@ describe Log do
     end
   end
 
-  it { described_class.should respond_to(:search) }
-  describe ".search" do
+  it { described_class.should respond_to(:search_text) }
+  describe ".search_text" do
     before do
       logs # So they are created in DB
     end
 
-    it { Log.search('claire').count.should == 2 }
-    it { Log.search('lor').count.should == 2 }
-    it { Log.search('  L  ').count.should == 3 }
-    it { Log.search('kamehameha').count.should == 0 }
+    it { Log.search_text('claire').count.should == 2 }
+    it { Log.search_text('lor').count.should == 2 }
+    it { Log.search_text('  L  ').count.should == 3 }
+    it { Log.search_text('kamehameha').count.should == 0 }
   end
 
   it { described_class.should respond_to(:random) }

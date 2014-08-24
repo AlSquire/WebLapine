@@ -3,7 +3,7 @@ class LogsController < ApplicationController
 
   def index
     @logs   = Log.order(Log.arel_table[:created_at].desc).where(:network => @network).where(:channel => @channel)
-    @logs   = @logs.search(params[:search]) if params[:search]
+    @logs   = @logs.search_text(params[:search]) if params[:search]
     respond_to do |format|
       format.html { @logs = @logs.page(params[:page]) }
       format.rss do
@@ -31,7 +31,7 @@ class LogsController < ApplicationController
   def search
     logs = Log.where(:network => @network).
                where(:channel => @channel).
-               search(params[:term])
+               search_text(params[:term])
     count = logs.count
     @log = logs.random if count > 0
     render :text => @log ? "#{@log.line} (#{count} resultats)" : "No result"

@@ -20,7 +20,7 @@ describe LinksController do
 
   describe 'GET :index with search param' do
     before do
-      Link.should_receive(:search).with('term').and_return(Link)
+      Link.should_receive(:search_text).with('term').and_return(Link)
       get :index, :network => 'freenode', :channel => 'ruby', :search => 'term'
     end
 
