@@ -14,7 +14,9 @@ class LogsController < ApplicationController
   end
 
   def create
-    @log = Log.new(params.require(:log).permit(:sender, :line))
+    @log = Log.new
+    @log.sender  = trans(params[:log][:sender])
+    @log.line    = trans(params[:log][:line])
     @log.network = params[:network]
     @log.channel = params[:channel]
     @log.save
@@ -48,5 +50,9 @@ private
   def init_network_and_channel
     @network = params[:network]
     @channel = params[:channel]
+  end
+
+  def trans(text)
+    I18n.transliterate(text)
   end
 end
