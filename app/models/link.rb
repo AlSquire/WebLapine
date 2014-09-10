@@ -18,7 +18,7 @@ class Link < ActiveRecord::Base
   end
 
   def image?
-    uri.end_with? *%w(.png .gif .jpg .jpeg)
+    URI(uri).path.end_with? *%w(.png .gif .jpg .jpeg)
   end
 
   def imgur?

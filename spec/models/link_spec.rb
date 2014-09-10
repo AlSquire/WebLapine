@@ -35,6 +35,20 @@ describe Link do
     it { @link.mirror_uri.should == "http://files.catstorage.com/12345.png" }
   end
 
+  describe "#create with an image uri with query params" do
+    before do
+      line = "It's a great photo http://something.fr/cat.png?a=b&c=d xD"
+      Link.should_receive(:request_resource_mirroring).
+           with("http://something.fr/cat.png?a=b&c=d").
+           and_return('http://files.catstorage.com/12345.png')
+      @link = Link.create(:line => line, :network => "netnet", :channel => "chanchan", :sender => "xand")
+    end
+
+    it { @link.uri.should == "http://something.fr/cat.png?a=b&c=d" }
+    it { @link.should be_image }
+    it { @link.mirror_uri.should == "http://files.catstorage.com/12345.png" }
+  end
+
   describe "#create with an imgur uri" do
     before do
       line = "When you see it http://imgur.com/r/funny/Mg63N you'll..."
