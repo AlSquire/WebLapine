@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.1.2' unless ENV['TRAVIS']
+ruby '2.3.1' unless ENV['TRAVIS']
 
 gem 'rails', '4.1.5'
 
@@ -35,7 +35,7 @@ end
 
 group :development, :test do
   gem 'sqlite3'
-  gem 'rspec', '< 2.99.0'
+  gem 'rspec'
   gem 'rspec-rails'
   gem 'guard-rspec'
   gem 'spring-commands-rspec'
