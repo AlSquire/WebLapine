@@ -1,5 +1,5 @@
 require 'spec_helper'
 
 describe LogTrack do
-  it { should belong_to(:log) }
+  it { is_expected.to belong_to(:log) }
 end

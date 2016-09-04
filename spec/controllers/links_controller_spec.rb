@@ -1,38 +1,38 @@
 require 'spec_helper'
 
-describe LinksController do
+describe LinksController, type: :controller do
   describe 'GET :index' do
     before do
       get :index, :network => 'freenode', :channel => 'ruby'
     end
 
-    it { should respond_with(:success) }
+    it { is_expected.to respond_with(:success) }
     it do
-      assigns(:network).should == 'freenode'
+      expect(assigns(:network)).to eq('freenode')
     end
     it do
-      assigns(:channel).should == 'ruby'
+      expect(assigns(:channel)).to eq('ruby')
     end
     it do
-      assigns(:links).should_not be_nil
+      expect(assigns(:links)).to_not be_nil
     end
   end
 
   describe 'GET :index with search param' do
     before do
-      Link.should_receive(:search_text).with('term').and_return(Link)
+      expect(Link).to receive(:search_text).with('term').and_return(Link)
       get :index, :network => 'freenode', :channel => 'ruby', :search => 'term'
     end
 
-    it { should respond_with(:success) }
+    it { is_expected.to respond_with(:success) }
     it do
-      assigns(:network).should == 'freenode'
+      expect(assigns(:network)).to eq('freenode')
     end
     it do
-      assigns(:channel).should == 'ruby'
+      expect(assigns(:channel)).to eq('ruby')
     end
     it do
-      assigns(:links).should_not be_nil
+      expect(assigns(:links)).to_not be_nil
     end
   end
 
@@ -41,15 +41,15 @@ describe LinksController do
       get :index, :network => 'freenode', :channel => 'ruby', :format => :rss
     end
 
-    it { should respond_with(:success) }
+    it { is_expected.to respond_with(:success) }
     it do
-      assigns(:network).should == 'freenode'
+      expect(assigns(:network)).to eq('freenode')
     end
     it do
-      assigns(:channel).should == 'ruby'
+      expect(assigns(:channel)).to eq('ruby')
     end
     it do
-      assigns(:links).should_not be_nil
+      expect(assigns(:links)).to_not be_nil
     end
   end
 
@@ -59,10 +59,10 @@ describe LinksController do
            :link => { :sender => 'nick', :line => 'Love this : http://ruby.fr' }
     end
 
-    it { should respond_with(:success) }
+    it { is_expected.to respond_with(:success) }
     it do
-      assigns(:link).should be_valid
-      assigns(:link).should be_persisted
+      expect(assigns(:link)).to be_valid
+      expect(assigns(:link)).to be_persisted
     end
   end
 end
